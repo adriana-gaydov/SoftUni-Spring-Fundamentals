@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+        <nav class="main-nav">
+            <th:block th:object="${@currentUser}">
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li th:if="${currentUser} == null">
+                    <a href="/users/login">Login</a>
+                </li>
+                <li th:if="${currentUser} == null">
+                    <a href="/users/register">Register</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                <li th:if="${currentUser} != null">
+                    <a href="/new-route">Add new route</a>
+                </li>
+                <li th:if="${currentUser} != null">
+                    <a href="/profile">Profile</a>
+                </li>
+                <li th:if="${currentUser} != null">
+                    <a href="/admin">Admin</a>
+                </li>
+                <li th:if="${currentUser} != null">
+                    <a href="/users/logout">Logout</a>
+                </li>
+            </ul>
+            </th:block>
+        </nav>
+
+</div>
+</body>
+</html>
